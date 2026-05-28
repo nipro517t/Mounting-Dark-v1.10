@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bd8hreljvot4e"]
+
+[ext_resource type="Script" uid="uid://r7q6hmb0dbwc" path="res://scripts/credits.gd" id="1_spoww"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yhot"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Credits" type="ScrollContainer" unique_id=1110674376 node_paths=PackedStringArray("text_node")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6yhot")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("1_spoww")
+text_node = NodePath("MarginContainer/RichTextLabel")
+credits_time = 15.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1752273718]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=328071510]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]
+[b]CRÉDITOS[/b]
+
+[b]DESENVOLVIMENTO DE SOFTWARE[/b]
+Nicolas C
+Marcelo
+Vinicius
+
+[p] [/p]
+
+[b]DESIGN DE JOGO[/b]
+Nicolas C
+Marcelo
+Vinicius
+
+[p] [/p]
+
+[b]ARTE E ANIMAÇÃO[/b]
+Nicolas C
+Marcelo
+Vinicius
+
+[p] [/p]
+
+[b]TRILHA SONORA E ÁUDIO[/b]
+Nicolas C
+Marcelo
+Vinicius
+
+[p] [/p]
+
+[b]ROTEIRO E NARRATIVA[/b]
+Nicolas C
+Marcelo
+Vinicius
+
+[p] [/p]
+[p] [/p]
+
+[i]Obrigado por jogar![/i]
+[/center]
+
+"
+fit_content = true

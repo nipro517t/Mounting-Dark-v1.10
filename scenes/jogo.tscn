@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dkuhgaer5h24d"]
+
+[ext_resource type="Script" uid="uid://dqmt4lga6r4ci" path="res://scripts/jogo.gd" id="1_4sjka"]
+[ext_resource type="PackedScene" uid="uid://d1hi2jq46ntqf" path="res://scenes/background.tscn" id="1_sq8yp"]
+[ext_resource type="PackedScene" uid="uid://b8n0i3ghaopon" path="res://scenes/main.tscn" id="2_1b3iq"]
+[ext_resource type="PackedScene" uid="uid://bau27heey8c4b" path="res://scenes/musica_manager.tscn" id="3_1b3iq"]
+[ext_resource type="PackedScene" uid="uid://bfa30titbdmry" path="res://scenes/option.pause.tscn" id="4_k05ng"]
+[ext_resource type="AudioStream" uid="uid://cjl01injmn65o" path="res://assets/sons/pian.ogg" id="6_ogo8m"]
+[ext_resource type="PackedScene" uid="uid://dpvocci5x15g6" path="res://scenes/coin.tscn" id="7_ogo8m"]
+
+[node name="jogo" type="Node2D" unique_id=1580217048]
+script = ExtResource("1_4sjka")
+
+[node name="background" parent="." unique_id=399421608 instance=ExtResource("1_sq8yp")]
+
+[node name="Main" parent="." unique_id=2047773791 instance=ExtResource("2_1b3iq")]
+
+[node name="node" parent="." unique_id=615649665 instance=ExtResource("3_1b3iq")]
+
+[node name="Pian" type="AudioStreamPlayer" parent="." unique_id=1114994763]
+stream = ExtResource("6_ogo8m")
+
+[node name="opition" parent="." unique_id=1235007892 instance=ExtResource("4_k05ng")]
+
+[node name="coin" parent="." unique_id=792885328 instance=ExtResource("7_ogo8m")]
+position = Vector2(450, -400)

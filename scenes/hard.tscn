@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://drqxmg6edfmu7"]
+
+[ext_resource type="PackedScene" uid="uid://dofmss7ob4vjk" path="res://scenes/infern-background.tscn" id="1_eontd"]
+[ext_resource type="Script" uid="uid://b78ueea43wj3n" path="res://scripts/hard.gd" id="1_fo8dt"]
+[ext_resource type="PackedScene" uid="uid://bfa30titbdmry" path="res://scenes/option.pause.tscn" id="3_2cycb"]
+[ext_resource type="AudioStream" uid="uid://pti8a27i21ey" path="res://assets/sons/fireforce.ogg" id="5_0ef5u"]
+[ext_resource type="Script" uid="uid://dcnty8bagmwx7" path="res://scripts/heroi.gd" id="5_pbjqc"]
+[ext_resource type="SpriteFrames" uid="uid://cyd8t256hlqdu" path="res://assets/skin_default.tres" id="6_7vrlt"]
+[ext_resource type="PackedScene" uid="uid://de1saokanni35" path="res://scenes/plate.tscn" id="7_pbjqc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pbjqc"]
+radius = 24.5
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7vrlt"]
+radius = 24.5
+height = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eon6t"]
+size = Vector2(905, 29.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mun1t"]
+size = Vector2(1, 1438.0625)
+
+[node name="hard" type="Node2D" unique_id=837261878]
+script = ExtResource("1_fo8dt")
+
+[node name="background" parent="." unique_id=399421608 instance=ExtResource("1_eontd")]
+
+[node name="opition" parent="." unique_id=1235007892 instance=ExtResource("3_2cycb")]
+
+[node name="Fireforce" type="AudioStreamPlayer" parent="." unique_id=40042610]
+stream = ExtResource("5_0ef5u")
+
+[node name="Plate" parent="." unique_id=664769850 instance=ExtResource("7_pbjqc")]
+position = Vector2(447, -21)
+
+[node name="Heroi2" type="CharacterBody2D" parent="." unique_id=1871820672]
+position = Vector2(450, -109)
+floor_snap_length = 8.0
+script = ExtResource("5_pbjqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heroi2" unique_id=439055509]
+position = Vector2(6.5, 13.5)
+shape = SubResource("CapsuleShape2D_pbjqc")
+
+[node name="Area2D" type="Area2D" parent="Heroi2" unique_id=2091251812]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heroi2/Area2D" unique_id=6632633]
+position = Vector2(6.5, 13.5)
+shape = SubResource("CapsuleShape2D_7vrlt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Heroi2" unique_id=1441067963]
+position = Vector2(0.9999962, 0.9999943)
+scale = Vector2(3.9999998, 3.6249995)
+sprite_frames = ExtResource("6_7vrlt")
+animation = &"Jump"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=878743131]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=201138767]
+position = Vector2(453.5, 917)
+shape = SubResource("RectangleShape2D_eon6t")
+
+[node name="TimerPlate" type="Timer" parent="." unique_id=162778804 groups=["Timers"]]
+wait_time = 2.5
+autostart = true
+
+[node name="TimerRock" type="Timer" parent="." unique_id=1943556740 groups=["Timers"]]
+wait_time = 5.0
+autostart = true
+
+[node name="TimerScore" type="Timer" parent="." unique_id=1717467591 groups=["Timers"]]
+autostart = true
+
+[node name="TimerSpeed" type="Timer" parent="." unique_id=836638291 groups=["Timers"]]
+wait_time = 2.5
+autostart = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=635824165]
+position = Vector2(750, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1370459376]
+position = Vector2(152.5, 336.03125)
+shape = SubResource("RectangleShape2D_mun1t")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1796685416]
+position = Vector2(750, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1005311371]
+position = Vector2(-750, 336.031)
+shape = SubResource("RectangleShape2D_mun1t")
+
+[node name="Score" type="Label" parent="." unique_id=1260268268]
+offset_left = 4.0
+offset_right = 73.0
+offset_bottom = 23.0
+text = "Score: 0"
+uppercase = true
+
+[connection signal="game_over" from="Heroi2" to="." method="_on_heroi_2_game_over"]
+[connection signal="score" from="Heroi2" to="." method="_on_heroi_2_score"]
+[connection signal="area_entered" from="Heroi2/Area2D" to="Heroi2" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="TimerPlate" to="." method="_on_timer_plate_timeout"]
+[connection signal="timeout" from="TimerRock" to="." method="_on_timer_rock_timeout"]
+[connection signal="timeout" from="TimerScore" to="." method="_on_timer_score_timeout"]
+[connection signal="timeout" from="TimerSpeed" to="." method="_on_timer_speed_timeout"]

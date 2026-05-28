@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://b8n0i3ghaopon"]
+
+[ext_resource type="Script" uid="uid://dcnty8bagmwx7" path="res://scripts/heroi.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://dc4mkihgrya2k" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="SpriteFrames" uid="uid://cyd8t256hlqdu" path="res://assets/skin_default.tres" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://de1saokanni35" path="res://scenes/plate.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dpvocci5x15g6" path="res://scenes/coin.tscn" id="7_o6xl0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tefeu"]
+radius = 24.5
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o6xl0"]
+radius = 24.5
+height = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
+size = Vector2(2, 1263.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
+size = Vector2(905, 29.5)
+
+[node name="Main" type="Node2D" unique_id=2047773791 node_paths=PackedStringArray("label")]
+script = ExtResource("1_jyhfs")
+label = NodePath("Score")
+
+[node name="coin" parent="." unique_id=792885328 instance=ExtResource("7_o6xl0")]
+position = Vector2(450, -400)
+
+[node name="Heroi" type="CharacterBody2D" parent="." unique_id=62894961]
+position = Vector2(450, -109)
+floor_snap_length = 8.0
+script = ExtResource("1_0wfyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heroi" unique_id=1746189741]
+position = Vector2(6.5, 13.5)
+shape = SubResource("CapsuleShape2D_tefeu")
+
+[node name="Area2D" type="Area2D" parent="Heroi" unique_id=640602132]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heroi/Area2D" unique_id=850248715]
+position = Vector2(6.5, 13.5)
+shape = SubResource("CapsuleShape2D_o6xl0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Heroi" unique_id=1457352560]
+position = Vector2(0.9999962, 0.9999943)
+scale = Vector2(3.9999998, 3.6249995)
+sprite_frames = ExtResource("3_tbgi4")
+animation = &"Jump"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1602076345]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=341176245]
+position = Vector2(1, 410.9375)
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2059313414]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2027046963]
+position = Vector2(453.5, 917)
+shape = SubResource("RectangleShape2D_tbgi4")
+
+[node name="TimerPlate" type="Timer" parent="." unique_id=1316571614 groups=["Timers"]]
+wait_time = 2.5
+autostart = true
+
+[node name="TimerRock" type="Timer" parent="." unique_id=332130364 groups=["Timers"]]
+wait_time = 5.0
+autostart = true
+
+[node name="TimerScore" type="Timer" parent="." unique_id=638189220 groups=["Timers"]]
+autostart = true
+
+[node name="TimerSpeed" type="Timer" parent="." unique_id=226657301 groups=["Timers"]]
+wait_time = 5.0
+autostart = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1476483947]
+position = Vector2(750, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1033086157]
+position = Vector2(152, 423.125)
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="Plate" parent="." unique_id=664769850 instance=ExtResource("4_jyhfs")]
+position = Vector2(450, -36)
+
+[node name="Score" type="Label" parent="." unique_id=1821913394]
+offset_left = 4.0
+offset_right = 73.0
+offset_bottom = 23.0
+text = "Score: 0"
+uppercase = true
+
+[connection signal="game_over" from="Heroi" to="." method="_on_heroi_game_over"]
+[connection signal="score" from="Heroi" to="." method="_on_heroi_score"]
+[connection signal="area_entered" from="Heroi/Area2D" to="Heroi" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="TimerPlate" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerRock" to="." method="_on_timer_rock_timeout"]
+[connection signal="timeout" from="TimerScore" to="." method="_on_timer_score_timeout"]
+[connection signal="timeout" from="TimerSpeed" to="." method="_on_timer_speed_timeout"]

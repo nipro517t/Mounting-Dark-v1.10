@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://d1hi2jq46ntqf"]
+
+[ext_resource type="Texture2D" uid="uid://c6exvbsk3flfe" path="res://assets/Parallax_Backgrounds_Cave/7.png" id="1_1tmhi"]
+[ext_resource type="Texture2D" uid="uid://b0t4mcnhiwfkr" path="res://assets/Parallax_Backgrounds_Cave/1.png" id="1_bkp1e"]
+[ext_resource type="Script" uid="uid://drfhva623tb6d" path="res://scripts/parallax_background.gd" id="1_l5f8m"]
+[ext_resource type="Texture2D" uid="uid://bi222gt3xt66" path="res://assets/Parallax_Backgrounds_Cave/6.png" id="2_l5f8m"]
+[ext_resource type="Texture2D" uid="uid://bb2l5iujj13rf" path="res://assets/Parallax_Backgrounds_Cave/5.png" id="3_6vm3t"]
+[ext_resource type="Texture2D" uid="uid://bwsqs1v31qldd" path="res://assets/Parallax_Backgrounds_Cave/4.png" id="4_8efq7"]
+[ext_resource type="Texture2D" uid="uid://delvhajq4cvb4" path="res://assets/Parallax_Backgrounds_Cave/3.png" id="5_da6cc"]
+[ext_resource type="Texture2D" uid="uid://sdt23b8iuwrq" path="res://assets/Parallax_Backgrounds_Cave/2.png" id="6_b6e46"]
+
+[node name="background" type="Node2D" unique_id=399421608]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=164503155]
+script = ExtResource("1_l5f8m")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=951447872]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(1, 0)
+motion_mirroring = Vector2(0, 900)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=863744300]
+position = Vector2(450.1696, 450.01093)
+rotation = 1.5707964
+scale = Vector2(2.3437672, 4.1656814)
+texture = ExtResource("1_1tmhi")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1144623618]
+motion_offset = Vector2(0, 2)
+motion_mirroring = Vector2(0, 900)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1291089077]
+position = Vector2(450.1696, 450.00122)
+rotation = 1.5707964
+scale = Vector2(2.3437164, 4.1656814)
+texture = ExtResource("2_l5f8m")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=593837871]
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(0, 900)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=146483965]
+position = Vector2(450.1696, 450.00122)
+rotation = 1.5707964
+scale = Vector2(2.3437164, 4.1656814)
+texture = ExtResource("3_6vm3t")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=339510545]
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(0, 900)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4" unique_id=1560129518]
+position = Vector2(450.1696, 450.00122)
+rotation = 1.5707964
+scale = Vector2(2.3437164, 4.1656814)
+texture = ExtResource("4_8efq7")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2098266216]
+motion_scale = Vector2(4, 4)
+motion_mirroring = Vector2(0, 900)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5" unique_id=34927124]
+position = Vector2(450.1696, 450.00122)
+rotation = 1.5707964
+scale = Vector2(2.3437164, 4.1656814)
+texture = ExtResource("5_da6cc")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground" unique_id=970562476]
+motion_scale = Vector2(5, 5)
+motion_mirroring = Vector2(0, 900)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6" unique_id=472577918]
+position = Vector2(450.1696, 450.00513)
+rotation = 1.5707964
+scale = Vector2(2.3437366, 4.1656814)
+texture = ExtResource("6_b6e46")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1273109495]
+motion_scale = Vector2(6, 6)
+motion_mirroring = Vector2(0, 900)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7" unique_id=1321066240]
+position = Vector2(450.1696, 449.9973)
+rotation = 1.5707964
+scale = Vector2(2.3436959, 4.1656814)
+texture = ExtResource("1_bkp1e")

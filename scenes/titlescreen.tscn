@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bmrojayxwc46i"]
+
+[ext_resource type="PackedScene" uid="uid://d1hi2jq46ntqf" path="res://scenes/background.tscn" id="1_3jj3l"]
+[ext_resource type="Theme" uid="uid://xuq2x8u2tavf" path="res://tema_layaut/medieval.tres" id="1_6d6rd"]
+[ext_resource type="Script" uid="uid://dyer76a04tb5r" path="res://scripts/titlescreen.gd" id="1_t7v6v"]
+[ext_resource type="AudioStream" uid="uid://cjl01injmn65o" path="res://assets/sons/pian.ogg" id="4_t7v6v"]
+
+[node name="titlescreen" type="Control" unique_id=1235007892]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7v6v")
+
+[node name="bg" type="TextureRect" parent="." unique_id=928490431]
+layout_mode = 0
+offset_right = 900.0
+offset_bottom = 900.0
+expand_mode = 2
+
+[node name="background" parent="bg" unique_id=399421608 instance=ExtResource("1_3jj3l")]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1189774372]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1207406284]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1967844256]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=675552937]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=639345242]
+layout_mode = 2
+theme = ExtResource("1_6d6rd")
+text = "Start"
+
+[node name="Credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=255067634]
+layout_mode = 2
+theme = ExtResource("1_6d6rd")
+text = "Credits"
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=233208171]
+layout_mode = 2
+theme = ExtResource("1_6d6rd")
+text = "Quit"
+
+[node name="mochi" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=861284597]
+layout_mode = 2
+
+[node name="som" type="AudioStreamPlayer2D" parent="." unique_id=356730298]
+stream = ExtResource("4_t7v6v")
+autoplay = true
+
+[node name="Label" type="Label" parent="." unique_id=69701176]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.056
+offset_left = 192.0
+offset_top = 56.0
+offset_right = 727.0
+offset_bottom = 115.6
+theme = ExtResource("1_6d6rd")
+theme_override_font_sizes/font_size = 80
+text = "Mounting Dark"
+
+[node name="Pian" type="AudioStreamPlayer" parent="." unique_id=476891356]
+stream = ExtResource("4_t7v6v")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quitgame_pressed"]

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bftrx7hlaw44m"]
+
+[ext_resource type="Script" uid="uid://ov78a6e7en56" path="res://scripts/game_over.gd" id="1_dh54o"]
+[ext_resource type="Theme" uid="uid://xuq2x8u2tavf" path="res://tema_layaut/medieval.tres" id="2_dh54o"]
+[ext_resource type="AudioStream" uid="uid://dbsnul5npsrjf" path="res://assets/sons/return.ogg" id="3_gob2e"]
+[ext_resource type="AudioStream" uid="uid://don17e5becd1n" path="res://assets/sons/death.ogg" id="4_d1w46"]
+
+[node name="Game Over" type="CanvasLayer" unique_id=80884935]
+process_mode = 3
+script = ExtResource("1_dh54o")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1141078538]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.8235294)
+
+[node name="menuGameover" type="VBoxContainer" parent="." unique_id=1263450430]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.5
+offset_top = -60.0
+offset_right = 124.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+
+[node name="re_zero" type="Button" parent="menuGameover" unique_id=646995452]
+layout_mode = 2
+theme = ExtResource("2_dh54o")
+text = "Re:zero"
+
+[node name="menu" type="Button" parent="menuGameover" unique_id=1617770110]
+layout_mode = 2
+theme = ExtResource("2_dh54o")
+text = "Menu"
+
+[node name="quitgamer" type="Button" parent="menuGameover" unique_id=825034033]
+layout_mode = 2
+theme = ExtResource("2_dh54o")
+text = "Quit"
+
+[node name="audiobydeath" type="AudioStreamPlayer2D" parent="." unique_id=2131411299]
+stream = ExtResource("3_gob2e")
+
+[node name="death" type="AudioStreamPlayer2D" parent="." unique_id=282204597]
+stream = ExtResource("4_d1w46")
+
+[node name="LabelPoints" type="Label" parent="." unique_id=605830192]
+anchors_preset = -1
+anchor_bottom = 0.056
+offset_left = 184.0
+offset_top = 152.0
+offset_right = 846.0
+offset_bottom = 193.6
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("2_dh54o")
+theme_override_font_sizes/font_size = 80
+
+[connection signal="rezero" from="." to="." method="_on_rezero"]
+[connection signal="pressed" from="menuGameover/re_zero" to="." method="_on_re_zero_pressed"]
+[connection signal="pressed" from="menuGameover/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="menuGameover/quitgamer" to="." method="_on_quitgamer_pressed"]

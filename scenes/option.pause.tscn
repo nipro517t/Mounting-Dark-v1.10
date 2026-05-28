@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bfa30titbdmry"]
+
+[ext_resource type="Script" uid="uid://bjghwkt4uqt3n" path="res://scripts/option.pause.gd" id="1_0k572"]
+[ext_resource type="Shader" uid="uid://4shhlock7o7h" path="res://tema_layaut/option.pause.gdshader" id="2_1m01b"]
+[ext_resource type="Theme" uid="uid://xuq2x8u2tavf" path="res://tema_layaut/medieval.tres" id="3_wjltp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0k572"]
+shader = ExtResource("2_1m01b")
+shader_parameter/lod = 3.0000001425
+
+[sub_resource type="InputEventAction" id="InputEventAction_1vimo"]
+action = &"ui_cancel"
+event_index = 0
+
+[sub_resource type="Shortcut" id="Shortcut_1m01b"]
+events = [SubResource("InputEventAction_1vimo")]
+
+[node name="opition" type="CanvasLayer" unique_id=490096341 groups=["pause"]]
+process_mode = 3
+script = ExtResource("1_0k572")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=836020837]
+material = SubResource("ShaderMaterial_0k572")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8156863)
+
+[node name="game opition" type="Label" parent="." unique_id=941972152]
+anchors_preset = -1
+anchor_bottom = 0.056
+offset_left = 313.0
+offset_top = 56.0
+offset_right = 584.0
+offset_bottom = 115.6
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_wjltp")
+theme_override_font_sizes/font_size = 80
+text = "Options"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1967844256]
+offset_left = 332.0
+offset_top = 353.0
+offset_right = 558.0
+offset_bottom = 539.0
+size_flags_horizontal = 6
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=675552937]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="VBoxContainer" unique_id=639345242]
+layout_mode = 2
+theme = ExtResource("3_wjltp")
+shortcut = SubResource("Shortcut_1m01b")
+text = "Resume"
+
+[node name="Menu" type="Button" parent="VBoxContainer" unique_id=255067634]
+layout_mode = 2
+theme = ExtResource("3_wjltp")
+text = "Menu"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=233208171]
+layout_mode = 2
+theme = ExtResource("3_wjltp")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_dificult_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quitgame_pressed"]
