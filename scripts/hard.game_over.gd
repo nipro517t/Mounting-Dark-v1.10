@@ -6,7 +6,7 @@ func _ready():
 	$death.play()
 	re_zero.grab_focus()
 	@warning_ignore("standalone_expression")
-	score_label.text = "Pontos Totais: " + str(GameManager.final_points)
+	score_label.text = "Pontos Totais: " + str(GameManager.total_points)
 
 func _on_re_zero_pressed():
 	##$audiobydeath.play()

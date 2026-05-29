@@ -12,6 +12,7 @@ var points = 0
 
 func _on_heroi_game_over() -> void:
 	print("game over")
+	GameManager.total_points = points
 	GameManager.final_points += points
 	GlobalSpeed.speedDown = 1.0
 	GlobalSpeed.speedUp = 1.0

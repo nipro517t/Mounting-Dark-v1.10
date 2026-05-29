@@ -9,7 +9,7 @@ func _ready() -> void:
 @onready var score: Label = $Score
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 const PLATE_SCENE = preload("res://scenes/plate.tscn")
@@ -23,6 +23,7 @@ var points = 0
 
 func _on_heroi_2_game_over() -> void:
 	print("game over")
+	GameManager.total_points = points
 	GameManager.final_points += points
 	GlobalSpeed.speedDown = 1.0
 	GlobalSpeed.speedUp = 1.0

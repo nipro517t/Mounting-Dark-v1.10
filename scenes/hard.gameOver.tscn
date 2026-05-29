@@ -41,12 +41,12 @@ text = "Re:zero"
 [node name="menu" type="Button" parent="menuGameover" unique_id=1617770110]
 layout_mode = 2
 theme = ExtResource("2_ciohf")
-text = "menu"
+text = "Menu"
 
 [node name="quitgamer" type="Button" parent="menuGameover" unique_id=825034033]
 layout_mode = 2
 theme = ExtResource("2_ciohf")
-text = "quit gamer"
+text = "Quit"
 
 [node name="audiobydeath" type="AudioStreamPlayer2D" parent="." unique_id=2131411299]
 stream = ExtResource("3_8n1yq")
